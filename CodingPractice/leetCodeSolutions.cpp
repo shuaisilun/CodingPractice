@@ -1,6 +1,9 @@
 #include "leetCodeSolutions.h"
 #include "SortAlgorithms.h"
 
+
+#define  max(a,b) a>b?a :b
+
 vector<int> LeetCodeSolution::twoSum(vector<int>& a_nums, int a_target)
 {
 	assert(a_nums.size() != 0 && a_target != NULL);
@@ -49,6 +52,57 @@ std::vector<std::vector<int>> LeetCodeSolution::threeSum(vector<int>& a_nums, in
 
 }
 
+LinkListNode<int>* LeetCodeSolution::addtwoNumbers(LinkListNode<int>* a_l1, LinkListNode<int>* a_l2)
+{
+	auto l1 = a_l1;
+	auto l2 = a_l2;
+
+	auto result = new LinkListNode<int>();
+
+	int carry = 0;
+
+	while (l1 || l2)
+	{
+		int n1 = l1 ? l1->getVal(): 0;
+		int n2 = l2 ? l2->getVal(): 0;
+		int sum = n1 + n2 + carry;
+		carry = sum / 10;
+		result->insert(sum % 10);
+		if (l1) l1 = l1->next;
+		if (l2) l2 = l2->next;
+	}
+
+	if (carry) result->insert(1);
+
+	return result;
+}
+
+int LeetCodeSolution::lengthOfLongestSubstring(string s)
+{
+	int m[256] = { 0 }, res = 0, left = 0;
+	for (int i = 0; i < s.size(); ++i) {
+		if (m[s[i]] == 0 || m[s[i]] < left) {
+			res = max(res, i - left + 1);
+		}
+		else {
+			left = m[s[i]];
+		}
+		m[s[i]] = i + 1;
+	}
+	return res;
+}
+
+bool LeetCodeSolution::isIsomorphic(string s, string t)
+{
+	int m1[256] = { 0 }, m2[256] = { 0 }, n = s.size();
+	for (int i = 0; i < n; ++i) {
+		if (m1[s[i]] != m2[t[i]]) return false;
+		m1[s[i]] = i + 1;
+		m2[t[i]] = i + 1;
+	}
+	return true;
+}
+
 bool LeetCodeTest::twoSum_Test()
 {
 	vector<int> testset = { 2, 7, 11, 15 };
@@ -83,6 +137,38 @@ bool LeetCodeTest::threeSum_Test()
 		for (int j : i)
 			sum += testset[j];
 		pass = pass && (sum == target);
+	}
+
+	return pass;
+}
+
+bool LeetCodeTest::AddTwoNumbers_Test()
+{
+	LinkListNode<int>* l1 = new LinkListNode<int>();
+	LinkListNode<int>* l2 = new LinkListNode<int>();
+
+	int testset[3] = { 2,4,3 };
+	int testset2[3] = { 5,6,4 };
+
+	for (int i : testset)
+		l1->insert(i);
+
+	for (int i : testset2)
+		l2->insert(i);
+
+	LinkListNode<int>* result = LeetCodeSolution::addtwoNumbers(l1, l2);
+	
+	int expectedResult[3] = { 7,0,8 };
+
+	bool pass = true;
+	auto tempNode = result;
+	for (int i : expectedResult)
+	{
+		pass = pass && (i == tempNode->getVal());
+		if (!pass)
+			break;
+		else
+			tempNode = tempNode->next;
 	}
 
 	return pass;

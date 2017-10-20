@@ -30,6 +30,9 @@
     <ClCompile Include="leetCodeSolutions.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="DataStructures.cpp">
+      <Filter>Util</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AlgorithmTest.h">
@@ -55,6 +58,9 @@
     </ClInclude>
     <ClInclude Include="leetCodeSolutions.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DataStructures.h">
+      <Filter>Util</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

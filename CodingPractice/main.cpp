@@ -6,6 +6,7 @@
 #include "SortAlgorithms.h"
 #include "ThreadManager.h"
 #include "leetCodeSolutions.h"
+#include "DataStructures.h"
 
 //=======================Defines====================================
 #define DEBUG_PRINT_LINE_FUNC(BaseName)   char* fileName##BaseName = __FILE__;								\
@@ -65,18 +66,23 @@ int main(void)
 {
 	const char* meName = "Allen";
 	printf("hello %s \n", meName);
-	//new ThreadManager(8);
-	//PerformAlgorithmTest();
 
+	// doodling
+	{
+		//new ThreadManager(8);
+		//PerformAlgorithmTest();
+	}
 
 	//leetCode test
 	{
-		LEETTESTPRINT(LeetCodeTest::twoSum_Test(), "TwoSum");
+		/*LEETTESTPRINT(LeetCodeTest::twoSum_Test(), "TwoSum");
 		LEETTESTPRINT(LeetCodeTest::threeSum_Test(), "ThreeSum");
-		LEETTESTPRINT(LeetCodeTest::AddTwoNumbers_Test(), "AddTwoNumbers");
+		LEETTESTPRINT(LeetCodeTest::AddTwoNumbers_Test(), "AddTwoNumbers");*/
 	}
 
-
+	LeetCodeSolution::isIsomorphic(string("egg"), string("add"));
+	LeetCodeSolution::isIsomorphic(string("paper"), string("title"));
+	
 	//busy waiting to prevent close the terminal.
 	while (1)
 		NULL;

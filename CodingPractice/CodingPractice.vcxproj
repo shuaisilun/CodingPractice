@@ -113,12 +113,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AlgorithmTest.cpp" />
+    <ClCompile Include="DataStructures.cpp" />
     <ClCompile Include="leetCodeSolutions.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="SortAlgorithms.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AlgorithmTest.h" />
+    <ClInclude Include="DataStructures.h" />
     <ClInclude Include="leetCodeSolutions.h" />
     <ClInclude Include="semaphore.h" />
     <ClInclude Include="Singleton.h" />

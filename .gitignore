@@ -1,7 +1,6 @@
 *.tlog
 *.log
 *.obj
-*.sln
 *.db
 *.exe
 *.ilk
