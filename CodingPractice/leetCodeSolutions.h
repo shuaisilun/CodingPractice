@@ -22,6 +22,12 @@ LinkListNode<int>* addtwoNumbers(LinkListNode<int>* a_l1, LinkListNode<int>* a_l
 int lengthOfLongestSubstring(string s);
 
 bool isIsomorphic(string s, string t);
+
+string longestPalindrome(string s);
+
+void searchPlindrome(string s, int left, int right, int& startIndex, int& len);
+
+bool isMatch(string s, string p);
 }
 
 namespace LeetCodeTest

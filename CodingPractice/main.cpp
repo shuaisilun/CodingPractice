@@ -75,13 +75,15 @@ int main(void)
 
 	//leetCode test
 	{
-		/*LEETTESTPRINT(LeetCodeTest::twoSum_Test(), "TwoSum");
-		LEETTESTPRINT(LeetCodeTest::threeSum_Test(), "ThreeSum");
-		LEETTESTPRINT(LeetCodeTest::AddTwoNumbers_Test(), "AddTwoNumbers");*/
+		/*LeetCodeTest::twoSum_Test();
+		LeetCodeTest::threeSum_Test();
+		LeetCodeTest::AddTwoNumbers_Test();
+		LeetCodeSolution::isIsomorphic(string("egg"), string("add"));
+		LeetCodeSolution::isIsomorphic(string("paper"), string("title"));
+		string s = LeetCodeSolution::longestPalindrome(string("asdlfjkasnellanoonallenjdklfajsdjf"));*/
 	}
 
-	LeetCodeSolution::isIsomorphic(string("egg"), string("add"));
-	LeetCodeSolution::isIsomorphic(string("paper"), string("title"));
+	
 	
 	//busy waiting to prevent close the terminal.
 	while (1)

@@ -103,6 +103,72 @@ bool LeetCodeSolution::isIsomorphic(string s, string t)
 	return true;
 }
 
+
+void LeetCodeSolution::searchPlindrome(string s, int left, int right, int& startIndex, int& len)
+{
+	bool finished = false;
+	int tempLeft = left;
+	int tempLen = 0;
+	if (left != right)
+		tempLen +=2;
+	int startLen = tempLen;
+	while (!finished)
+	{
+		if (left == 0 || right == s.size() || s[--left] != s[++right])
+			finished = true;
+		else
+			tempLen += 2;
+	}
+
+	if (tempLen !=0 && tempLen > len)
+	{
+		startIndex = left == 0 || right==s.size() ? 0: left + 1;
+		len = tempLen;
+		string m = s.substr(startIndex, len);
+	}
+}
+
+bool LeetCodeSolution::isMatch(string s, string p)
+{
+	if (p.empty()) return s.empty();
+	if (p.size() == 1) {
+		return (s.size() == 1 && (s[0] == p[0] || p[0] == '.'));
+	}
+	if (p[1] != '*') {
+		if (s.empty()) return false;
+		return (s[0] == p[0] || p[0] == '.') && isMatch(s.substr(1), p.substr(1));
+	}
+	while (!s.empty() && (s[0] == p[0] || p[0] == '.')) {
+		if (isMatch(s, p.substr(2))) return true;
+		s = s.substr(1);
+	}
+	return isMatch(s, p.substr(2));
+}
+
+std::string LeetCodeSolution::longestPalindrome(string s)
+{
+	int nsize = s.size() , left = 0, right =0, len= 0, startIndex = 0;
+
+	for (int i = 0; i < nsize; i++)
+	{
+		if (s[i] == s[i + 1])
+		{
+			left = i; 
+			right = i + 1;
+			searchPlindrome(s, left, right, startIndex, len);
+		}
+		else
+		{
+			left = i;
+			right = i;
+			searchPlindrome(s, left, right, startIndex, len);
+		}
+	}
+
+	if (!len) len = s.size();
+	return s.substr(startIndex, len);
+}
+
 bool LeetCodeTest::twoSum_Test()
 {
 	vector<int> testset = { 2, 7, 11, 15 };
