@@ -117,6 +117,7 @@
     <ClCompile Include="leetCodeSolutions.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="SortAlgorithms.cpp" />
+    <ClCompile Include="SuedoCode.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AlgorithmTest.h" />
@@ -125,6 +126,7 @@
     <ClInclude Include="semaphore.h" />
     <ClInclude Include="Singleton.h" />
     <ClInclude Include="SortAlgorithms.h" />
+    <ClInclude Include="SuedoCode.h" />
     <ClInclude Include="TaskQueue.h" />
     <ClInclude Include="ThreadManager.h" />
     <ClInclude Include="ThreadPool.h" />

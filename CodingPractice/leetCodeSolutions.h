@@ -28,6 +28,8 @@ string longestPalindrome(string s);
 void searchPlindrome(string s, int left, int right, int& startIndex, int& len);
 
 bool isMatch(string s, string p);
+
+void FindBiggestContainer(const vector<int>& a_nums, int& o_line1, int& o_line2);
 }
 
 namespace LeetCodeTest

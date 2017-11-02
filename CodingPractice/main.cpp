@@ -1,4 +1,4 @@
-//=======================includes===================================
+﻿//=======================includes===================================
 #include <stddef.h>
 #include <iostream>
 
@@ -7,6 +7,8 @@
 #include "ThreadManager.h"
 #include "leetCodeSolutions.h"
 #include "DataStructures.h"
+
+#include "SuedoCode.h"
 
 //=======================Defines====================================
 #define DEBUG_PRINT_LINE_FUNC(BaseName)   char* fileName##BaseName = __FILE__;								\
@@ -59,13 +61,19 @@ void PerformAlgorithmTest()
 
 	ThreadManager::Instance().async([]() {mytest.SetSortFuc(&QuickSort); mytest.Test(); });
 }
-//==========================================
 
+bool testcheck(int a_in[], int a_size)
+{
+
+}
+//==========================================
 // Start
 int main(void)
 {
 	const char* meName = "Allen";
 	printf("hello %s \n", meName);
+
+	vector<int> testSet(10, 5, 3, 8, 4, 9, 6, 1, 2, 7);
 
 	// doodling
 	{
@@ -75,16 +83,14 @@ int main(void)
 
 	//leetCode test
 	{
-		/*LeetCodeTest::twoSum_Test();
-		LeetCodeTest::threeSum_Test();
-		LeetCodeTest::AddTwoNumbers_Test();
-		LeetCodeSolution::isIsomorphic(string("egg"), string("add"));
-		LeetCodeSolution::isIsomorphic(string("paper"), string("title"));
-		string s = LeetCodeSolution::longestPalindrome(string("asdlfjkasnellanoonallenjdklfajsdjf"));*/
+		//LeetCodeTest::twoSum_Test();
+		//LeetCodeTest::threeSum_Test();
+		//LeetCodeTest::AddTwoNumbers_Test();
+		//LeetCodeSolution::isIsomorphic(string("egg"), string("add"));
+		//LeetCodeSolution::isIsomorphic(string("paper"), string("title"));
+		//string s = LeetCodeSolution::longestPalindrome(string("asdlfjkasnellanoonallenjdklfajsdjf"));
 	}
 
-	
-	
 	//busy waiting to prevent close the terminal.
 	while (1)
 		NULL;

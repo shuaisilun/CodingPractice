@@ -3,6 +3,7 @@
 
 
 #define  max(a,b) a>b?a :b
+#define  min(a,b) a>b?b :a
 
 vector<int> LeetCodeSolution::twoSum(vector<int>& a_nums, int a_target)
 {
@@ -143,6 +144,31 @@ bool LeetCodeSolution::isMatch(string s, string p)
 		s = s.substr(1);
 	}
 	return isMatch(s, p.substr(2));
+}
+
+void LeetCodeSolution::FindBiggestContainer(const vector<int>& a_nums, int& o_left, int& o_right)
+{
+	assert(a_nums.size() >= 2);
+
+	int left = 0, right = a_nums.size();
+	int mostVolume = (left - right) * min(a_nums[left], a_nums[right]);
+
+	while (right - left > 1)
+	{
+		int curVolume = (left - right) * min(a_nums[left], a_nums[right]);
+		if (mostVolume <= curVolume)
+		{
+			o_left = left;
+			o_right = right;
+			mostVolume = curVolume;
+		}
+		if (a_nums[o_left] < a_nums[o_right])
+			o_left++;
+		else
+		{
+			o_right--;
+		}
+	}
 }
 
 std::string LeetCodeSolution::longestPalindrome(string s)
